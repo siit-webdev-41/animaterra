@@ -307,3 +307,83 @@ const card55 = new Card(
 );
 
 const card56 = new Card("Zmeul", -7, "./assets/imgs/cards/Zmeul", "Puterea mea este unică și mai mare decât a lui Făt Frumos");
+
+//We declare a variable as an array with all our cards.
+
+let cardPool = [
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  card6,
+  card7,
+  card8,
+  card9,
+  card10,
+  card11,
+  card12,
+  card13,
+  card14,
+  card15,
+  card16,
+  card17,
+  card18,
+  card19,
+  card20,
+  card21,
+  card22,
+  card23,
+  card24,
+  card25,
+  card26,
+  card27,
+  card28,
+  card29,
+  card30,
+  card31,
+  card32,
+  card33,
+  card34,
+  card35,
+  card36,
+  card37,
+  card38,
+  card39,
+  card40,
+  card41,
+  card42,
+  card43,
+  card44,
+  card45,
+  card46,
+  card47,
+  card48,
+  card49,
+  card50,
+  card51,
+  card52,
+  card53,
+  card54,
+  card55,
+  card56,
+];
+
+// we need a function that takes 2 arguments: pool and numCards, where pool is our total numbers of
+// cards, and numCard is a parameter // where we will sepcify how money cards should be extracted
+
+// inside this function we create an empy array where we will randomly push cards
+
+function generateCardSet(pool, numCards) {
+  const cardSet = [];
+  for (let i = 0; i < numCards; i++) {
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    cardSet.push(pool[randomIndex]);
+  }
+  return cardSet;
+}
+
+// check it out-it Works!
+
+// const generatedSet = generateCardSet(cardPool, 10);
+// console.log(generatedSet);
