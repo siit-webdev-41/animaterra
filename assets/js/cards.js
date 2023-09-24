@@ -1,6 +1,4 @@
-console.log("main js is loaded");
-
-class Card {
+export class Card {
   constructor(name, points, image, story) {
     this.name = name;
     this.points = points;
@@ -169,13 +167,32 @@ const card30 = new Card(
   "Cu cât te înalți mai mult în văzduh, cu atât mai mult poți coborî în abisuri. Aceasta este experiența"
 );
 
-const card31 = new Card("Busola Posibilităților", 19, "./assets/imgs/cards/Busola-posibilitatilor.jpg", "Ești cuantic, în superpoziție");
+const card31 = new Card(
+  "Busola Posibilităților",
+  19, "./assets/imgs/cards/Busola-posibilitatilor.jpg",
+  "Ești cuantic, în superpoziție"
+);
 
-const card32 = new Card("Teres", 4, "./assets/imgs/cards/Teres.jpg", "Din urșii carpatini mă trag, din munții zvelți ai acestui neam ");
+const card32 = new Card(
+  "Teres",
+  4,
+  "./assets/imgs/cards/Teres.jpg",
+  "Din urșii carpatini mă trag, din munții zvelți ai acestui neam "
+);
 
-const card33 = new Card("Cosmin", 5, "./assets/imgs/cards/Cosmin.jpg", "Să-ți descoperi magia, este cel mai important drum către tine");
+const card33 = new Card(
+  "Cosmin", 
+  5, 
+  "./assets/imgs/cards/Cosmin.jpg", 
+  "Să-ți descoperi magia, este cel mai important drum către tine"
+);
 
-const card34 = new Card("FătFrumos", 6, "./assets/imgs/cards/Fat-frumos.jpg", "De veacuri mă știți. Ca mine și voi puteți să fiți");
+const card34 = new Card(
+  "FătFrumos", 
+  6, 
+  "./assets/imgs/cards/Fat-frumos.jpg", 
+  "De veacuri mă știți. Ca mine și voi puteți să fiți"
+);
 
 const card35 = new Card(
   "Pumn de Piatră",
@@ -308,9 +325,7 @@ const card55 = new Card(
 
 const card56 = new Card("Zmeul", -7, "./assets/imgs/cards/Zmeul", "Puterea mea este unică și mai mare decât a lui Făt Frumos");
 
-//We declare a variable as an array with all our cards.
-
-let cardPool = [
+export default [
   card1,
   card2,
   card3,
@@ -368,22 +383,3 @@ let cardPool = [
   card55,
   card56,
 ];
-
-// we need a function that takes 2 arguments: pool and numCards, where pool is our total numbers of
-// cards, and numCard is a parameter // where we will sepcify how money cards should be extracted
-
-// inside this function we create an empy array where we will randomly push cards
-
-function generateCardSet(pool, numCards) {
-  const cardSet = [];
-  for (let i = 0; i < numCards; i++) {
-    const randomIndex = Math.floor(Math.random() * pool.length);
-    cardSet.push(pool[randomIndex]);
-  }
-  return cardSet;
-}
-
-// check it out-it Works!
-
-// const generatedSet = generateCardSet(cardPool, 10);
-// console.log(generatedSet);
