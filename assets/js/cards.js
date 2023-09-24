@@ -1,4 +1,4 @@
-export class Card
+export class CardDeck
 {
   static imagePath = "./assets/imgs/cards"; 
 
