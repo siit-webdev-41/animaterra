@@ -1,6 +1,6 @@
 export class Card
 {
-  static imagePath = "./assets/imgs/cards"; // Calea către folderul cu imagini
+  static imagePath = "./assets/imgs/cards"; 
 
   constructor(name, points, story)
   {
