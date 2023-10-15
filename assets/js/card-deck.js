@@ -1,24 +1,34 @@
 export default class CardDeck {
-    
-    constructor(cardsPool){
+
+    constructor(cardsPool, cardDeckSize) {
         this.cardsPool = cardsPool;
         this.usedCards = [];
+
+        this.generateCardDeck(cardDeckSize);
+        this.shuffle();
     }
 
-    generateCardDeck(numCards){
-        const cardSet = [];
-        for (let i = 0; i < numCards; i++) {
+    generateCardDeck(cardDeckSize) {
+        this.cardsSet = [];
+        for (let i = 0; i < cardDeckSize; i++) {
             const randomIndex = Math.floor(Math.random() * this.cardsPool.length);
-            cardSet.push(this.cardsPool[randomIndex]);
+            this.cardsSet.push(this.cardsPool[randomIndex]);
         }
-        return cardSet;
     }
 
-    shuffle(){
-        // TO DO
+    getCardsPool() {
+        return this.cardsPool;
     }
 
-    getFirstCard(){
+    getCardsSet() {
+        return this.cardsSet;
+    }
+
+    shuffle() {
+        this.cardsSet.sort(() => Math.random() - 0.5);
+    }
+
+    getFirstCard() {
         // TO DO 
         // if the stack is empty, geat all cards from used cards, shuffle and empty the usedCards array - this should be a method "reset"
         // give info about the card and move it to the usedCards array
