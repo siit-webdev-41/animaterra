@@ -28,9 +28,13 @@ export default class CardDeck {
         this.cardsSet.sort(() => Math.random() - 0.5);
     }
 
-    getFirstCard() {
+    getLastCard() {
+        let card = this.cardsSet.pop();
+        this.usedCards.push(card);
+
+        return card;
         // TO DO 
-        // if the stack is empty, geat all cards from used cards, shuffle and empty the usedCards array - this should be a method "reset"
+        // if the stack is empty, get all cards from used cards, shuffle and empty the usedCards array - this should be a method "reset"
         // give info about the card and move it to the usedCards array
     }
 
