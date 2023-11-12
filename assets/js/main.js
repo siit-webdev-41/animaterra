@@ -13,7 +13,7 @@ console.log(card);
 
 
 const mainComponent = document.querySelector('#game-ui-component');
-let drawnCardComponent1 = new DrawnCardComponent(card, []);
+let drawnCardComponent1 = new DrawnCardComponent(card, ['class-1','class-2']);
 mainComponent.append(drawnCardComponent1.cardContainerElement);
 
 
