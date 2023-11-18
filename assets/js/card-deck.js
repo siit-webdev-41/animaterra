@@ -15,6 +15,15 @@ export default class CardDeck {
       this.cardsSet.push(this.cardsPool[randomIndex]);
     }
   }
+  //   generateCardSet() {
+  //     this.cardsSet = Array.from({ length: this.cardDeckSize },
+  // () => this.cardsPool[Math.floor(Math.random() * this.cardsPool.length)]);
+  //   }
+
+  // Avantaje:
+  // Imutabilitate: Array.from creează un nou array de fiecare dată când este apelat.
+  //    Acest lucru se aliniază cu principiul imutabilității din programarea funcțională,
+  //   unde modificați stările prin crearea de noi obiecte în loc să modificați obiecte existente.
 
   getCardsPool() {
     return this.cardsPool;
@@ -30,7 +39,7 @@ export default class CardDeck {
 
   get lastCard() {
     if (this.cardsSet.length === 0) {
-        this.fillCardSet();
+      this.fillCardSet();
     }
 
     let card = this.cardsSet.pop();
@@ -40,8 +49,8 @@ export default class CardDeck {
   }
 
   fillCardSet() {
-      this.cardsSet = this.usedCards;
-      this.shuffle();
-      this.usedCards = [];
+    this.cardsSet = this.usedCards;
+    this.shuffle();
+    this.usedCards = [];
   }
 }
