@@ -10,20 +10,9 @@ export default class CardDeck {
   }
 
   generateCardSet() {
-    while (this.cardsSet.length < this.cardDeckSize) {
-      const randomIndex = Math.floor(Math.random() * this.cardsPool.length);
-      this.cardsSet.push(this.cardsPool[randomIndex]);
-    }
+    this.cardsSet = Array.from({ length: this.cardDeckSize },
+      () => this.cardsPool[Math.floor(Math.random() * this.cardsPool.length)]);
   }
-  //   generateCardSet() {
-  //     this.cardsSet = Array.from({ length: this.cardDeckSize },
-  // () => this.cardsPool[Math.floor(Math.random() * this.cardsPool.length)]);
-  //   }
-
-  // Avantaje:
-  // Imutabilitate: Array.from creează un nou array de fiecare dată când este apelat.
-  //    Acest lucru se aliniază cu principiul imutabilității din programarea funcțională,
-  //   unde modificați stările prin crearea de noi obiecte în loc să modificați obiecte existente.
 
   getCardsPool() {
     return this.cardsPool;
