@@ -148,7 +148,7 @@ export default [
     "Zînele au toată puterea naturii în fiecare gest pe care îl fac. Este nevoie și de puterea oamenilor în animatera."
   ),
   new Card(
-    "Sfarmă Arbor",
+    "Sfarâmă Arbor",
     6,
     "Frații mei, arborii, te vor ajuta, doar să te gândești la ei."
   ),
@@ -188,7 +188,7 @@ export default [
     "Să-ți descoperi magia, este cel mai important drum către tine."
   ),
   new Card(
-    "FătFrumos",
+    "Făt Frumos",
     6,
     "De veacuri mă știți. Ca mine și voi puteți să fiți."
   ),

@@ -8,13 +8,20 @@ const cardDeckSize = 10;
 const cardDeck = new CardDeck(cards, cardDeckSize);
 
 console.log(cardDeck);
-let card = cardDeck.lastCard;
-console.log(card);
+
+const mainComponent = document.querySelector('#cards-container');
 
 
-const mainComponent = document.querySelector('#game-ui-component');
-let drawnCardComponent1 = new DrawnCardComponent(card, ['class-1','class-2']);
+let card1 = cardDeck.lastCard;
+console.log(card1);
+let drawnCardComponent1 = new DrawnCardComponent(card1, ['card-left']);
 mainComponent.append(drawnCardComponent1.cardContainerElement);
+
+
+let card2 = cardDeck.lastCard;
+console.log(card2);
+let drawnCardComponent2 = new DrawnCardComponent(card2, ['card-right']);
+mainComponent.append(drawnCardComponent2.cardContainerElement);
 
 
 

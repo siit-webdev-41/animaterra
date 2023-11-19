@@ -9,12 +9,19 @@ export default class DrawnCardComponent {
 
     createDOMElements(){
         this.cardContainer = document.createElement('div');
-        // this.cssClasses.forEach(cssClass => this.cardContainer.classList.add(cssClass));
-        this.cardContainer.classList.add(...this.cssClasses);
+
+        // add css classes
+        this.cardContainer.classList.add('card-display', ...this.cssClasses);
 
         // add card image
         const cardImg = document.createElement('img');
+        cardImg.src = this.card.getCardImage();
         this.cardContainer.append(cardImg);
+
+        // add card title
+        const cardName = document.createElement('h2');
+        cardName.textContent = this.card.name;
+        this.cardContainer.append(cardName);
 
         // add card description
         const cardDescription = document.createElement('p');

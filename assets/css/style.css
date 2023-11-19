@@ -1,0 +1,17 @@
+#cards-container{
+    display: flex;
+}
+
+.card-display {
+    border: 1px solid grey;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.card-display img {
+    border-radius: 10px;
+    width: 180px;
+    height: 252px;
+}
