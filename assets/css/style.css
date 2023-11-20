@@ -1,17 +1,23 @@
-#cards-container{
-    display: flex;
+#cards-container {
+  display: flex;
 }
 
 .card-display {
-    border: 1px solid grey;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-    flex: 1;
+  /* display: flex; */
+  border: 1px solid grey;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  flex: 1;
 }
 
 .card-display img {
-    border-radius: 10px;
-    width: 180px;
-    height: 252px;
+  border-radius: 10px;
+  width: 180px;
+  height: 252px;
+}
+
+.card-right {
+  /* flex-direction: row-reverse; */
+  font-size: 50px;
 }
