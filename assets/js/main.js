@@ -16,10 +16,10 @@ console.log(card1);
 let drawnCardComponent1 = new DrawnCardComponent(card1, ['card-left']);
 mainComponent.append(drawnCardComponent1.cardContainerElement);
 
-// let card2 = cardDeck.lastCard;
-// console.log(card2);
-// let drawnCardComponent2 = new DrawnCardComponent(card2, ['card-right']);
-// mainComponent.append(drawnCardComponent2.cardContainerElement);
+let card2 = cardDeck.lastCard;
+console.log(card2);
+let drawnCardComponent2 = new DrawnCardComponent(card2, ['card-right']);
+mainComponent.append(drawnCardComponent2.cardContainerElement);
 
 // console.log(structuredClone(cardDeck));
 // console.log(cardDeck.cardsSet);
