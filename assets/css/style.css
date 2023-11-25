@@ -3,7 +3,8 @@ h1 {
 }
 
 #cards-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card-display {
@@ -32,16 +33,6 @@ h1 {
     margin: 1rem;
     border-radius: 10px;
 }
-
-/* #cards-container:nth-child(1) {
-    order: 2;
-}
-#cards-container:nth-child(2) {
-    order: 1;
-}
-#cards-container:nth-child(3) {
-    order: 3;
-} */
 
 .card-stack img {
     border-radius: 10px;
