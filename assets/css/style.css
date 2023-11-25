@@ -61,3 +61,9 @@ h1 {
 .card-right p {
     text-align: right;
 }
+
+.score-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
