@@ -1,6 +1,6 @@
 # ANIMATERRA
 
-## Resources
+## ResourcesSD
 
 ### Implementation specs: 
 Google docs:
