@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script type="module" src="assets/js/main.js"></script>
-  </head>
-  <body>
-    <h1>THE GAME!</h1>
-    <div id="game-ui-component">
-      <div id="cards-container"></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <script type="module" src="assets/js/main.js"></script>
+    </head>
+    <body>
+        <h1>THE GAME!</h1>
+        <div id="game-ui-component">
+            <div id="cards-container">
+                <div class="player1"></div>
+                <div class="card-stack">
+                    <img src="assets/imgs/back-of-card.jpg" alt="" />
+                    <button class="game-btn">New round</button>
+                </div>
+                <div class="player2"></div>
+            </div>
+            <div class="score-container">
+                <div class="score-player1">
+                    <p>SCORE <span class="score1"></span></p>
+                </div>
+                <div class="game-result">
+                    Winner <span class="winner"></span>
+                </div>
+                <div class="score-player2">
+                    <p>SCORE <span class="score2"></span></p>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
