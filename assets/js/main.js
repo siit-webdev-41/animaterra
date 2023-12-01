@@ -12,8 +12,10 @@ console.log(cardDeck);
 // const mainComponent = document.querySelector('#cards-container');
 const player1 = document.querySelector('.player1');
 const player2 = document.querySelector('.player2');
+
 const score1 = document.querySelector('.score1');
 const score2 = document.querySelector('.score2');
+
 const winner = document.querySelector('.winner');
 
 const button = document.querySelector('.game-btn');

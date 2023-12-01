@@ -10,8 +10,10 @@ export default class DrawnCardComponent {
     createDOMElements(){
         this.cardContainer = document.createElement('div');
 
+        console.log(this.card.color);
+
         // add css classes
-        this.cardContainer.classList.add('card-display', [...this.cssClasses, this.card.color]);
+        this.cardContainer.classList.add('card-display', ...this.cssClasses, this.card.color);
 
         // add card title
         const cardName = document.createElement('h2');

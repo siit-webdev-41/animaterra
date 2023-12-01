@@ -12,6 +12,10 @@
     --color-light-gold: #a76d37;
     --color-green: #317552;
     --color-light-green: #49a54a;
+    --color-purple: #5d3d61;
+    --color-light-purple: #9e4a85;
+    --color-teal: #2e6a6e;
+    --color-light-teal: #31acaa;
 }
 
 body {
@@ -76,6 +80,33 @@ h1 {
     background-color: var(--color-green);
 }
 
+.card-display.gold {
+    border-color: var(--color-gold);
+    box-shadow: 1px 1px 10px 2px var(--color-light-gold);
+}
+
+.card-points.gold {
+    background-color: var(--color-gold);
+}
+
+.card-display.purple {
+    border-color: var(--color-purple);
+    box-shadow: 1px 1px 10px 2px var(--color-light-purple);
+}
+
+.card-points.purple {
+    background-color: var(--color-purple);
+}
+
+.card-display.teal {
+    border-color: var(--color-teal);
+    box-shadow: 1px 1px 10px 2px var(--color-light-teal);
+}
+
+.card-points.teal {
+    background-color: var(--color-teal);
+}
+
 .card-display img {
     border-radius: var(--border-radius);
     width: 180px;
@@ -103,8 +134,13 @@ h1 {
     text-align: right;
 }
 
+.card-right .card-points{
+    text-align: left;
+}
+
 .card-points-value {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .card-points-text {
