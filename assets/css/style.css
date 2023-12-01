@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-body{
+:root {
+    --border-radius: 10px;
+    --color-grey: #5b5b5b;
+    --color-light-grey: #9b9b9b;
+    --color-red: #763334;
+    --color-light-red: #763334;
+    --color-blue: #354c75;
+    --color-light-blue: #4671a6;
+    --color-gold: #724c29;
+    --color-light-gold: #a76d37;
+    --color-green: #317552;
+    --color-light-green: #49a54a;
+}
+
+body {
     font-family: 'Roboto Condensed', sans-serif;
     color: rgb(61, 61, 61);
 }
@@ -17,17 +31,53 @@ h1 {
 .card-display {
     display: flex;
     flex-direction: column;
-    border: 1px solid #9e9e9e;
+    border: 3px solid var(--color-grey);
     padding: 1rem;
     margin: 1rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     flex: 1;
-    box-shadow: 1px 1px 10px 2px #bebebe;
+    box-shadow: 1px 1px 10px 2px var(--color-light-grey);
     width: 24rem;
 }
 
+.card-display.grey {
+    border-color: var(--color-grey);
+    box-shadow: 1px 1px 10px 2px var(--color-light-grey);
+}
+
+.card-points.grey {
+    background-color: var(--color-grey);
+}
+
+.card-display.red {
+    border-color: var(--color-red);
+    box-shadow: 1px 1px 10px 2px var(--color-light-red);
+}
+
+.card-points.red {
+    background-color: var(--color-red);
+}
+
+.card-display.blue {
+    border-color: var(--color-blue);
+    box-shadow: 1px 1px 10px 2px var(--color-light-blue);
+}
+
+.card-points.blue {
+    background-color: var(--color-blue);
+}
+
+.card-display.green {
+    border-color: var(--color-green);
+    box-shadow: 1px 1px 10px 2px var(--color-light-green);
+}
+
+.card-points.green {
+    background-color: var(--color-green);
+}
+
 .card-display img {
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     width: 180px;
     height: 252px;
 }
@@ -36,10 +86,29 @@ h1 {
     display: flex;
 }
 
-.card-description{
-    padding: 1rem;
+.card-description {
+    padding: 0 1rem;
     font-size: 1.1rem;
     line-height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-points {
+    background-color: var(--color-grey);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    text-align: right;
+}
+
+.card-points-value {
+    font-size: 2rem;
+}
+
+.card-points-text {
+    font-size: 0.8rem;
 }
 
 .card-stack {
@@ -47,7 +116,6 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;

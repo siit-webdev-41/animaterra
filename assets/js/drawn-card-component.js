@@ -11,7 +11,7 @@ export default class DrawnCardComponent {
         this.cardContainer = document.createElement('div');
 
         // add css classes
-        this.cardContainer.classList.add('card-display', ...this.cssClasses);
+        this.cardContainer.classList.add('card-display', [...this.cssClasses, this.card.color]);
 
         // add card title
         const cardName = document.createElement('h2');
@@ -27,17 +27,32 @@ export default class DrawnCardComponent {
         cardImg.src = this.card.getCardImage();
         cardContent.append(cardImg);
 
-        // add card description
+        // add card description div
         const cardDescription = document.createElement('div');
         cardDescription.classList.add('card-description');
-        cardDescription.textContent = this.card.story;
         cardContent.append(cardDescription);
+        
+        // add card description text
+        const cardDescriptionText = document.createElement('p'); 
+        cardDescriptionText.textContent = this.card.story;
+        cardDescription.append(cardDescriptionText);
 
-        // add card points
-        const cardPoints = document.createElement('p');
-        const pointsText = Math.abs(this.card.points) == 1 ? 'punct' : 'puncte';
-        cardPoints.textContent = this.card.points + ' ' + pointsText;
-        this.cardContainer.append(cardPoints);
+        // add card points containter
+        const cardPoints = document.createElement('div');
+        cardPoints.classList.add('card-points', this.card.color);
+        cardDescription.append(cardPoints);
+
+        // add card points value
+        const cardPointsValue = document.createElement('div');
+        cardPointsValue.classList.add('card-points-value');
+        cardPointsValue.textContent = this.card.points > 0 ? `+${this.card.points}` : this.card.points;
+        cardPoints.append(cardPointsValue);
+
+        // add card points text
+        const cardPointsText = document.createElement('div');
+        cardPointsText.classList.add('card-points-text');
+        cardPointsText.textContent =  Math.abs(this.card.points) == 1 ? 'punct' : 'puncte';
+        cardPoints  .append(cardPointsText);
     }
 
     get cardContainerElement(){
