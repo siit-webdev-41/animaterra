@@ -41,6 +41,7 @@ h1 {
     border-radius: var(--border-radius);
     flex: 1;
     box-shadow: 1px 1px 10px 2px var(--color-light-grey);
+    background-color: #f9eac6;
     width: 24rem;
 }
 
