@@ -1,63 +1,98 @@
 export default class DrawnCardComponent {
-    constructor(card, cssClasses){
-        this.card = card;
+    constructor(card, cssClasses) {
+        this.card = null;
         this.cssClasses = cssClasses;
-        this.cardContainer = null;
 
-        this.createDOMElements();
+        this.cardContainer = null;
+        this.cardName = null;
+        this.cardImg = null;
+        this.cardDescriptionText = null;
+        this.cardPoints = null;
+        this.cardPointsValue = null;
+        this.cardPointsText = null;
+
+        this.createComponent();
+        this.uppdateComponent(card);
     }
 
-    createDOMElements(){
+
+    get cardContainerElement() {
+        return this.cardContainer;
+    }
+
+
+    createComponent() {
         this.cardContainer = document.createElement('div');
 
-        console.log(this.card.color);
-
         // add css classes
-        this.cardContainer.classList.add('card-display', ...this.cssClasses, this.card.color);
+        this.cardContainer.classList.add('card-display', ...this.cssClasses);
 
         // add card title
-        const cardName = document.createElement('h2');
-        cardName.textContent = this.card.name;
-        this.cardContainer.append(cardName);
+        this.cardName = document.createElement('h2');
+        this.cardContainer.append(this.cardName);
 
+        // add the card content
         const cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
         this.cardContainer.append(cardContent);
 
         // add card image
-        const cardImg = document.createElement('img');
-        cardImg.src = this.card.getCardImage();
-        cardContent.append(cardImg);
+        this.cardImg = document.createElement('img');
+        cardContent.append(this.cardImg);
 
         // add card description div
         const cardDescription = document.createElement('div');
         cardDescription.classList.add('card-description');
         cardContent.append(cardDescription);
-        
+
         // add card description text
-        const cardDescriptionText = document.createElement('p'); 
-        cardDescriptionText.textContent = this.card.story;
-        cardDescription.append(cardDescriptionText);
+        this.cardDescriptionText = document.createElement('p');
+        cardDescription.append(this.cardDescriptionText);
 
         // add card points containter
-        const cardPoints = document.createElement('div');
-        cardPoints.classList.add('card-points', this.card.color);
-        cardDescription.append(cardPoints);
+        this.cardPoints = document.createElement('div');
+        this.cardPoints.classList.add('card-points');
+        cardDescription.append(this.cardPoints);
 
         // add card points value
-        const cardPointsValue = document.createElement('div');
-        cardPointsValue.classList.add('card-points-value');
-        cardPointsValue.textContent = this.card.points > 0 ? `+${this.card.points}` : this.card.points;
-        cardPoints.append(cardPointsValue);
+        this.cardPointsValue = document.createElement('div');
+        this.cardPointsValue.classList.add('card-points-value');
+        this.cardPoints.append(this.cardPointsValue);
 
         // add card points text
-        const cardPointsText = document.createElement('div');
-        cardPointsText.classList.add('card-points-text');
-        cardPointsText.textContent =  Math.abs(this.card.points) == 1 ? 'punct' : 'puncte';
-        cardPoints  .append(cardPointsText);
+        this.cardPointsText = document.createElement('div');
+        this.cardPointsText.classList.add('card-points-text');
+        this.cardPoints.append(this.cardPointsText);
     }
 
-    get cardContainerElement(){
-        return this.cardContainer;
+
+    uppdateComponent(card) {
+        if (card === null) {
+            return;
+        }
+
+        this.resetComponent()
+
+        this.card = card;
+
+        // text and images
+        this.cardName.textContent = this.card.name;
+        this.cardImg.src = this.card.getCardImage();
+        this.cardDescriptionText.textContent = this.card.story;
+        this.cardPointsValue.textContent = this.card.points > 0 ? `+${this.card.points}` : this.card.points;
+        this.cardPointsText.textContent = Math.abs(this.card.points) == 1 ? 'punct' : 'puncte';
+
+        // classes
+        this.cardContainer.classList.add(this.card.color);
+        this.cardPoints.classList.add(this.card.color);
+    }
+
+    resetComponent() {
+        if (this.card === null) {
+            return;
+        }
+
+        this.cardContainer.classList.remove(this.card.color);
+        this.cardPoints.classList.remove(this.card.color);
     }
 }
