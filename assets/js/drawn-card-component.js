@@ -23,8 +23,6 @@ export default class DrawnCardComponent {
 
     createComponent() {
         this.cardContainer = document.createElement('div');
-
-        // add css classes
         this.cardContainer.classList.add('card-display', ...this.cssClasses);
 
         // add card title
@@ -67,11 +65,12 @@ export default class DrawnCardComponent {
 
 
     uppdateComponent(card) {
+        this.resetComponent();
+
         if (card === null) {
+            this.cardContainer.classList.add('hidden');
             return;
         }
-
-        this.resetComponent()
 
         this.card = card;
 
@@ -85,7 +84,9 @@ export default class DrawnCardComponent {
         // classes
         this.cardContainer.classList.add(this.card.color);
         this.cardPoints.classList.add(this.card.color);
+        this.cardContainer.classList.remove('hidden');
     }
+    
 
     resetComponent() {
         if (this.card === null) {
