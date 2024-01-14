@@ -2,7 +2,8 @@ console.log("main.js is loaded....");
 
 import cards from "./cards.js";
 import CardDeck from "./card-deck.js";
-import Player from "./player.js";
+import Player from "./player-component.js";
+import PlayerModel from "./player.js";
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
@@ -43,3 +44,11 @@ function newRound() {
             playerUser1.score > playerUser2.score ? "Player1" : "Player2";
     }
 }
+
+
+let p1 = new PlayerModel('Greuceanu', 'purple', 10);
+
+p1.updateScore(10);
+
+console.log(p1);
+console.log(p1.score);

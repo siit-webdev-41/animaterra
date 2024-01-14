@@ -1,22 +1,29 @@
 import DrawnCardComponent from "./drawn-card-component.js";
 
 export default class Player {
-    constructor(scoreItem, playerSide, drawnCardClass) {
-        this.scoreItem = scoreItem;
-        this.playerSide = playerSide;
-        this.drawnCardComponent = new DrawnCardComponent(null, [
-            drawnCardClass,
-        ]);
-        this.playerSide.append(this.drawnCardComponent.cardContainerElement);
-        this.score = 0;
+    #score;
+
+    constructor(name, color, initialScore = 0) {
+        this.name = name;
+        this.color = color;
+        this.#score = initialScore;
     }
 
-    updateScore(card) {
-        this.score += card.points;
-        this.scoreItem.textContent = this.score;
+    updateScore(points) {
+        if (this.isAlive) {
+            this.#score += points;
+        }
+
+        if (this.#score < 0) {
+            this.#score = 0;
+        }
     }
 
-    updateDrawnCard(card) {
-        this.drawnCardComponent.uppdateComponent(card);
+    get isAlive() {
+        return this.#score > 0;
+    }
+
+    get score() {
+        return this.#score
     }
 }
