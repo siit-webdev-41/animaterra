@@ -2,7 +2,7 @@ console.log("main.js is loaded....");
 
 import cards from "./cards.js";
 import CardDeck from "./card-deck.js";
-import Player from "./player-component.js";
+import PlayerComponent from "./player-component.js";
 import PlayerModel from "./player.js";
 
 const cardDeckSize = 20;
@@ -10,17 +10,21 @@ const cardDeck = new CardDeck(cards, cardDeckSize);
 
 console.log(cardDeck);
 
-const mainComponent = document.querySelector("#cards-container");
+const playersComponent = document.querySelector("#players-ui-component");
+
+
+// const mainComponent = document.querySelector("#cards-container");
+
 
 // player 1
-const score1 = document.querySelector(".score1");
-const player1 = document.querySelector(".player1");
-const playerUser1 = new Player(score1, player1, "card-left");
+// const score1 = document.querySelector(".score1");
+// const player1 = document.querySelector(".player1");
+// const playerUser1 = new Player(score1, player1, "card-left");
 
 //  player 2
-const score2 = document.querySelector(".score2");
-const player2 = document.querySelector(".player2");
-const playerUser2 = new Player(score2, player2, "card-right");
+// const score2 = document.querySelector(".score2");
+// const player2 = document.querySelector(".player2");
+// const playerUser2 = new Player(score2, player2, "card-right");
 
 const winner = document.querySelector(".winner");
 
@@ -46,9 +50,15 @@ function newRound() {
 }
 
 
-let p1 = new PlayerModel('Greuceanu', 'purple', 10);
+const players = [
+    new PlayerModel('Greuceanu', 'purple', 10),
+    new PlayerModel('Zmeul Zmeilor', 'red', 10),
+    new PlayerModel('Muma Pădurii', 'green', 10),
+    new PlayerModel('Făt Frumos', 'blue', 10)
+];
 
-p1.updateScore(10);
 
-console.log(p1);
-console.log(p1.score);
+players.forEach((player, i) => {
+    let playerCardComponent = new PlayerComponent(player, i + 1);
+    playersComponent.append(playerCardComponent.mainContainer);
+})

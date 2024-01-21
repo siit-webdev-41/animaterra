@@ -1,5 +1,3 @@
-import DrawnCardComponent from "./drawn-card-component.js";
-
 export default class Player {
     #score;
 

@@ -1,22 +1,28 @@
-import DrawnCardComponent from "./drawn-card-component.js";
+export default class PlayerComponent {
+    #mainContainer;
 
-export default class Player {
-    constructor(scoreItem, playerSide, drawnCardClass) {
-        this.scoreItem = scoreItem;
-        this.playerSide = playerSide;
-        this.drawnCardComponent = new DrawnCardComponent(null, [
-            drawnCardClass,
-        ]);
-        this.playerSide.append(this.drawnCardComponent.cardContainerElement);
-        this.score = 0;
+    constructor(player, index) {
+        this.player = player;
+        this.index = index;
+        this.#mainContainer = null;
+        
+        this.create();
     }
 
-    updateScore(card) {
-        this.score += card.points;
-        this.scoreItem.textContent = this.score;
+    get mainContainer(){
+        return this.#mainContainer;
     }
 
-    updateDrawnCard(card) {
-        this.drawnCardComponent.uppdateComponent(card);
+    create(){
+        this.#mainContainer = document.createElement('div');
+        this.#mainContainer.classList.add('player-container');
+
+        const title = document.createElement('h4');
+        title.textContent = `PLAYER ${this.index}`;
+        this.#mainContainer.append(title);
+    }
+
+    update() {
+        console.log(`UPDATE COMPONENT`);
     }
 }

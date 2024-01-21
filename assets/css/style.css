@@ -198,3 +198,13 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
 }
+
+#players-ui-component{
+    display: flex;
+}
+
+.player-container{
+    width: 15rem;
+    height: 20rem;
+    border: 1px solid;
+}
