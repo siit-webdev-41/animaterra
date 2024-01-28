@@ -14,12 +14,23 @@ export default class PlayerComponent {
     }
 
     create(){
-        this.#mainContainer = document.createElement('div');
-        this.#mainContainer.classList.add('player-container');
+        console.log(this.player);
 
-        const title = document.createElement('h4');
+        this.#mainContainer = document.createElement(`div`);
+        this.#mainContainer.classList.add(`player-container`, `player-color-${this.player.color}`);
+
+
+        const cardHeader = document.createElement(`div`);
+        cardHeader.classList.add(`player-card-header`);
+        this.#mainContainer.append(cardHeader);
+
+        const title = document.createElement(`h4`);
         title.textContent = `PLAYER ${this.index}`;
-        this.#mainContainer.append(title);
+        cardHeader.append(title);
+
+        const playerName = document.createElement(`h3`);
+        playerName.textContent = `${this.player.name}`;
+        cardHeader.append(playerName);
     }
 
     update() {

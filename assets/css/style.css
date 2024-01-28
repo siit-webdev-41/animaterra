@@ -2,6 +2,7 @@
 
 :root {
     --border-radius: 10px;
+    --color-cream: #f8f8f2;
     --color-grey: #5b5b5b;
     --color-light-grey: #9b9b9b;
     --color-red: #763334;
@@ -201,10 +202,57 @@ h1 {
 
 #players-ui-component{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .player-container{
     width: 15rem;
     height: 20rem;
-    border: 1px solid;
+    border: 3px solid;
+    border-radius: var(--border-radius);
+}
+
+.player-color-blue {
+    border: 3px solid var(--color-blue);
+}
+
+.player-color-red {
+    border: 3px solid var(--color-red);
+}
+
+.player-color-purple {
+    border: 3px solid var(--color-purple);
+}
+
+.player-color-green {
+    border: 3px solid var(--color-green);
+}
+
+.player-card-header{
+    height: 20%;
+    background-color: #9b9b9b;
+    color: var(--color-cream);
+    /* border-top-left-radius: calc(var(--border-radius) - 1); */
+    /* border-top-right-radius: var(--border-radius); */
+    padding: 1rem;
+}
+
+.player-card-header h4{
+    margin-top: 0;
+}
+
+.player-color-blue .player-card-header{
+    background-color: var(--color-blue);
+}
+
+.player-color-red .player-card-header{
+    background-color: var(--color-red);
+}
+
+.player-color-purple .player-card-header{
+    background-color: var(--color-purple);
+}
+
+.player-color-green .player-card-header{
+    background-color: var(--color-green);
 }
