@@ -32,9 +32,9 @@ export default class CardDeck {
     }
 
     get lastCard() {
-        // if (this.cardsSet.length === 0) {
-        //   this.fillCardSet();
-        // }
+        if (this.cardsSet.length === 0) {
+          this.fillCardSet();
+        }
 
         let card = this.cardsSet.pop();
         this.usedCards.push(card);

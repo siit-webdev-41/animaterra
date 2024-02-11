@@ -1,5 +1,6 @@
 export default class PlayerComponent {
     #mainContainer;
+    #playerScore;
 
     constructor(player, index) {
         this.player = player;
@@ -14,26 +15,39 @@ export default class PlayerComponent {
     }
 
     create(){
-        console.log(this.player);
-
         this.#mainContainer = document.createElement(`div`);
         this.#mainContainer.classList.add(`player-container`, `player-color-${this.player.color}`);
-
 
         const cardHeader = document.createElement(`div`);
         cardHeader.classList.add(`player-card-header`);
         this.#mainContainer.append(cardHeader);
 
         const title = document.createElement(`h4`);
-        title.textContent = `PLAYER ${this.index}`;
+        title.textContent = `JUCĂTOR ${this.index}`;
         cardHeader.append(title);
 
-        const playerName = document.createElement(`h3`);
-        playerName.textContent = `${this.player.name}`;
+        const playerName = document.createElement(`h2`);
+        playerName.textContent = this.player.name;
         cardHeader.append(playerName);
+
+        const cardBody = document.createElement(`div`);
+        cardBody.classList.add(`player-card-body`); 
+        this.#mainContainer.append(cardBody);
+
+        const scoreText = document.createElement(`div`);
+        scoreText.classList.add(`score-text`); 
+        scoreText.textContent = 'Puterea armatei:'
+        cardBody.append(scoreText);
+
+        this.#playerScore = document.createElement(`div`);
+        this.#playerScore.classList.add(`player-score`); 
+        cardBody.append(this.#playerScore);
+
+        this.update();
     }
 
     update() {
         console.log(`UPDATE COMPONENT`);
+        this.#playerScore.textContent = this.player.score;
     }
 }

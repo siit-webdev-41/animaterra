@@ -32,20 +32,12 @@ const button = document.querySelector(".game-btn");
 button.addEventListener("click", newRound);
 
 function newRound() {
-    console.log(cardDeck.cardsSet.length);
-    if (cardDeck.cardsSet.length > 0) {
-        let card1 = cardDeck.lastCard;
-        console.log(card1);
-        playerUser1.updateDrawnCard(card1);
-        playerUser1.updateScore(card1);
+    for (let i = 0; i < players.length; i++) {
+        const drawnCard = cardDeck.lastCard;
+        console.log(drawnCard);
 
-        let card2 = cardDeck.lastCard;
-        console.log(card2);
-        playerUser2.updateDrawnCard(card2);
-        playerUser2.updateScore(card2);
-    } else {
-        winner.textContent =
-            playerUser1.score > playerUser2.score ? "Player1" : "Player2";
+        players[i].updateScore(drawnCard.points);
+        playerComponents[i].update();
     }
 }
 
@@ -57,8 +49,11 @@ const players = [
     new PlayerModel('Făt Frumos', 'blue', 10)
 ];
 
+const playerComponents = [];
 
 players.forEach((player, i) => {
-    let playerCardComponent = new PlayerComponent(player, i + 1);
+    const playerCardComponent = new PlayerComponent(player, i + 1);
+    playerComponents.push(playerCardComponent);
+
     playersComponent.append(playerCardComponent.mainContainer);
-})
+});

@@ -4,6 +4,7 @@
     --border-radius: 10px;
     --color-cream: #f8f8f2;
     --color-grey: #5b5b5b;
+    --color-dark-grey: #2a2a2a;
     --color-light-grey: #9b9b9b;
     --color-red: #763334;
     --color-light-red: #763334;
@@ -17,6 +18,12 @@
     --color-light-purple: #9e4a85;
     --color-teal: #2e6a6e;
     --color-light-teal: #31acaa;
+
+    --card-header-height: 30%;
+}
+
+* {
+    box-sizing: border-box; 
 }
 
 body {
@@ -30,11 +37,6 @@ body {
 
 h1 {
     text-align: center;
-}
-
-#cards-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card-display {
@@ -140,7 +142,7 @@ h1 {
     text-align: right;
 }
 
-.card-right .card-points{
+.card-right .card-points {
     text-align: left;
 }
 
@@ -151,17 +153,6 @@ h1 {
 
 .card-points-text {
     font-size: 0.8rem;
-}
-
-.card-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-    height: 70vh;
 }
 
 .card-stack img {
@@ -200,12 +191,12 @@ h1 {
     justify-items: center;
 }
 
-#players-ui-component{
+#players-ui-component {
     display: flex;
     justify-content: space-evenly;
 }
 
-.player-container{
+.player-container {
     width: 15rem;
     height: 20rem;
     border: 3px solid;
@@ -228,31 +219,51 @@ h1 {
     border: 3px solid var(--color-green);
 }
 
-.player-card-header{
-    height: 20%;
+.player-card-header {
+    height: var(--card-header-height);
     background-color: #9b9b9b;
     color: var(--color-cream);
-    /* border-top-left-radius: calc(var(--border-radius) - 1); */
-    /* border-top-right-radius: var(--border-radius); */
     padding: 1rem;
 }
 
-.player-card-header h4{
+.player-card-header h4 {
     margin-top: 0;
 }
 
-.player-color-blue .player-card-header{
+.player-color-blue .player-card-header {
     background-color: var(--color-blue);
 }
 
-.player-color-red .player-card-header{
+.player-color-red .player-card-header {
     background-color: var(--color-red);
 }
 
-.player-color-purple .player-card-header{
+.player-color-purple .player-card-header {
     background-color: var(--color-purple);
 }
 
-.player-color-green .player-card-header{
+.player-color-green .player-card-header {
     background-color: var(--color-green);
+}
+
+.player-card-body {
+    height: calc(100% - var(--card-header-height));
+    background-color: #fef7c3;
+    color: var(--color-dark-grey);
+    padding: 1rem;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}   
+
+.score-text{
+    font-size: 1.25rem;
+}
+
+.player-score{
+    font-weight: bold;
+    font-size: 4rem;
 }
