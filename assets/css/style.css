@@ -20,10 +20,11 @@
     --color-light-teal: #31acaa;
 
     --card-header-height: 30%;
+    --card-width: 24rem;
 }
 
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
@@ -44,12 +45,10 @@ h1 {
     flex-direction: column;
     border: 3px solid var(--color-grey);
     padding: 1rem;
-    margin: 1rem;
     border-radius: var(--border-radius);
-    flex: 1;
     box-shadow: 1px 1px 10px 2px var(--color-light-grey);
     background-color: #f9eac6;
-    width: 24rem;
+    width: var(--card-width);
 }
 
 .card-display.grey {
@@ -194,10 +193,11 @@ h1 {
 #players-ui-component {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 1rem;
 }
 
 .player-container {
-    width: 15rem;
+    width: var(--card-width);
     height: 20rem;
     border: 3px solid;
     border-radius: var(--border-radius);
@@ -257,13 +257,18 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}   
+}
 
-.score-text{
+.score-text {
     font-size: 1.25rem;
 }
 
-.player-score{
+.player-score {
     font-weight: bold;
     font-size: 4rem;
+}
+
+#cards-container {
+    display: flex;
+    justify-content: space-evenly;
 }

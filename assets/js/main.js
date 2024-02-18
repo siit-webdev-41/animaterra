@@ -4,6 +4,7 @@ import cards from "./cards.js";
 import CardDeck from "./card-deck.js";
 import PlayerComponent from "./player-component.js";
 import PlayerModel from "./player.js";
+import DrawnCardComponent from "./drawn-card-component.js";
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
@@ -11,9 +12,7 @@ const cardDeck = new CardDeck(cards, cardDeckSize);
 console.log(cardDeck);
 
 const playersComponent = document.querySelector("#players-ui-component");
-
-
-// const mainComponent = document.querySelector("#cards-container");
+const playerCardsComponent = document.querySelector("#cards-container");
 
 
 // player 1
@@ -25,8 +24,10 @@ const playersComponent = document.querySelector("#players-ui-component");
 // const score2 = document.querySelector(".score2");
 // const player2 = document.querySelector(".player2");
 // const playerUser2 = new Player(score2, player2, "card-right");
+// const winner = document.querySelector(".winner");
 
-const winner = document.querySelector(".winner");
+
+
 
 const button = document.querySelector(".game-btn");
 button.addEventListener("click", newRound);
@@ -35,9 +36,13 @@ function newRound() {
     for (let i = 0; i < players.length; i++) {
         const drawnCard = cardDeck.lastCard;
         console.log(drawnCard);
+        // display cards
+        playerDrawnCardsComponents[i].updateComponent(drawnCard);
 
+        // update score & display
         players[i].updateScore(drawnCard.points);
         playerComponents[i].update();
+
     }
 }
 
@@ -56,4 +61,13 @@ players.forEach((player, i) => {
     playerComponents.push(playerCardComponent);
 
     playersComponent.append(playerCardComponent.mainContainer);
+});
+
+
+// create the cards
+const playerDrawnCardsComponents = [];
+players.forEach(player => {
+    const drawnCardComponent = new DrawnCardComponent(null);
+    playerDrawnCardsComponents.push(drawnCardComponent);
+    playerCardsComponent.append(drawnCardComponent.cardContainerElement);
 });

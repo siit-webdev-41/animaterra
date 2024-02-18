@@ -1,5 +1,5 @@
 export default class DrawnCardComponent {
-    constructor(card, cssClasses) {
+    constructor(card, cssClasses = []) {
         this.card = null;
         this.cssClasses = cssClasses;
 
@@ -12,7 +12,7 @@ export default class DrawnCardComponent {
         this.cardPointsText = null;
 
         this.createComponent();
-        this.uppdateComponent(card);
+        this.updateComponent(card);
     }
 
 
@@ -64,7 +64,7 @@ export default class DrawnCardComponent {
     }
 
 
-    uppdateComponent(card) {
+    updateComponent(card) {
         this.resetComponent();
 
         if (card === null) {
