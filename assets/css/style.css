@@ -239,6 +239,7 @@ h1 {
 
 .player-card-header h4 {
     margin-top: 0;
+    text-transform: uppercase;
 }
 
 .player-color-blue .player-card-header {
@@ -282,4 +283,8 @@ h1 {
 #cards-container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.zero-score-player {
+    opacity: 0.3;
 }

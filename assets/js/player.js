@@ -22,6 +22,6 @@ export default class Player {
     }
 
     get score() {
-        return this.#score
+        return this.#score;
     }
 }

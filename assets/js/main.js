@@ -14,7 +14,6 @@ console.log(cardDeck);
 const playersComponent = document.querySelector("#players-ui-component");
 const playerCardsComponent = document.querySelector("#cards-container");
 
-
 // player 1
 // const score1 = document.querySelector(".score1");
 // const player1 = document.querySelector(".player1");
@@ -26,9 +25,6 @@ const playerCardsComponent = document.querySelector("#cards-container");
 // const playerUser2 = new Player(score2, player2, "card-right");
 // const winner = document.querySelector(".winner");
 
-
-
-
 const button = document.querySelector(".game-btn");
 button.addEventListener("click", newRound);
 
@@ -37,21 +33,22 @@ function newRound() {
         const drawnCard = cardDeck.lastCard;
         console.log(drawnCard);
         // display cards
-        playerDrawnCardsComponents[i].updateComponent(drawnCard);
+        playerDrawnCardsComponents[i].updateComponent(
+            drawnCard,
+            players[i].score
+        );
 
         // update score & display
         players[i].updateScore(drawnCard.points);
         playerComponents[i].update();
-
     }
 }
 
-
 const players = [
-    new PlayerModel('Greuceanu', 'purple', 10),
-    new PlayerModel('Zmeul Zmeilor', 'red', 10),
-    new PlayerModel('Muma Pădurii', 'green', 10),
-    new PlayerModel('Făt Frumos', 'blue', 10)
+    new PlayerModel("Greuceanu", "purple", 10),
+    new PlayerModel("Zmeul Zmeilor", "red", 10),
+    new PlayerModel("Muma Pădurii", "green", 10),
+    new PlayerModel("Făt Frumos", "blue", 10),
 ];
 
 const playerComponents = [];
@@ -63,10 +60,9 @@ players.forEach((player, i) => {
     playersComponent.append(playerCardComponent.mainContainer);
 });
 
-
 // create the cards
 const playerDrawnCardsComponents = [];
-players.forEach(player => {
+players.forEach((player) => {
     const drawnCardComponent = new DrawnCardComponent(null);
     playerDrawnCardsComponents.push(drawnCardComponent);
     playerCardsComponent.append(drawnCardComponent.cardContainerElement);
