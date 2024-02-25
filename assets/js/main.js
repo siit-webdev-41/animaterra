@@ -11,41 +11,36 @@ const cardDeck = new CardDeck(cards, cardDeckSize);
 
 console.log(cardDeck);
 
-const playersComponent = document.querySelector('#players-ui-component');
-const playerCardsComponent = document.querySelector('#cards-container');
+const playersComponent = document.querySelector("#players-ui-component");
+const playerCardsComponent = document.querySelector("#cards-container");
 
-// player 1
-// const score1 = document.querySelector(".score1");
-// const player1 = document.querySelector(".player1");
-// const playerUser1 = new Player(score1, player1, "card-left");
-
-//  player 2
-// const score2 = document.querySelector(".score2");
-// const player2 = document.querySelector(".player2");
-// const playerUser2 = new Player(score2, player2, "card-right");
-// const winner = document.querySelector(".winner");
-
-const button = document.querySelector('.game-btn');
-button.addEventListener('click', newRound);
+const button = document.querySelector(".game-btn");
+button.addEventListener("click", newRound);
 
 function newRound() {
     for (let i = 0; i < players.length; i++) {
         const drawnCard = cardDeck.lastCard;
         console.log(drawnCard);
-        // display cards
-        playerDrawnCardsComponents[i].updateComponent(drawnCard);
 
-        // update score & display
+        // update player score
         players[i].updateScore(drawnCard.points);
+
+        // display cards
+        const diplayCard = players[i].score > 0 ? drawnCard : null;
+        playerDrawnCardsComponents[i].updateComponent(diplayCard);
+
+        // update player component
         playerComponents[i].update();
     }
 }
 
+
+const startScore = 1;
 const players = [
-    new PlayerModel('Greuceanu', 'purple', 10),
-    new PlayerModel('Zmeul Zmeilor', 'red', 10),
-    new PlayerModel('Muma Pădurii', 'green', 10),
-    new PlayerModel('Făt Frumos', 'blue', 10),
+    new PlayerModel("Greuceanu", "purple", startScore),
+    new PlayerModel("Zmeul Zmeilor", "red", startScore),
+    new PlayerModel("Muma Pădurii", "green", startScore),
+    new PlayerModel("Făt Frumos", "blue", startScore),
 ];
 
 const playerComponents = [];
