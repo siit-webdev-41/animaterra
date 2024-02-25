@@ -61,11 +61,11 @@ export default class DrawnCardComponent {
         this.cardPoints.append(this.cardPointsText);
     }
 
-    updateComponent(card, score) {
+    updateComponent(card) {
         this.resetComponent();
 
         if (card === null) {
-            this.cardContainer.classList.add("hidden");
+            this.cardContainer.classList.add("zero-score-player");
             return;
         }
 
@@ -80,14 +80,12 @@ export default class DrawnCardComponent {
         this.cardPointsText.textContent =
             Math.abs(this.card.points) == 1 ? "punct" : "puncte";
 
-        if (score === 0) {
-            this.cardContainer.classList.add("zero-score-player");
-        }
+        // if (score === 0) {
+        //     this.cardContainer.classList.add("zero-score-player");
+        // }
 
         // classes
-        this.cardContainer.classList.add(this.card.color);
-        this.cardPoints.classList.add(this.card.color);
-        this.cardContainer.classList.remove("hidden");
+        this.updateComponentUI();
     }
 
     resetComponent() {
@@ -97,5 +95,11 @@ export default class DrawnCardComponent {
 
         this.cardContainer.classList.remove(this.card.color);
         this.cardPoints.classList.remove(this.card.color);
+    }
+
+    updateComponentUI() {
+        this.cardContainer.classList.add(this.card.color);
+        this.cardPoints.classList.add(this.card.color);
+        this.cardContainer.classList.remove("zero-score-player");
     }
 }

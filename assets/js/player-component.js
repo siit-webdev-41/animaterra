@@ -49,15 +49,15 @@ export default class PlayerComponent {
         this.update();
     }
 
-    updateScoreClass() {
-        if (this.player.score === 0) {
-            this.#mainContainer.classList.add("zero-score-player");
-        }
-    }
-
     update() {
         console.log(`UPDATE COMPONENT`);
         this.#playerScore.textContent = this.player.score;
-        this.updateScoreClass();
+        this.updateComponentUI();
+    }
+
+    updateComponentUI() {
+        if (this.player.score <= 0) {
+            this.#mainContainer.classList.add("zero-score-player");
+        }
     }
 }
