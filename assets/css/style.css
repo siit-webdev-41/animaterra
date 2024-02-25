@@ -181,18 +181,10 @@ h1 {
 .back-of-card-2 {
     z-index: 30;
     position: absolute;
-    /* margin-top: 10px;
-    margin-left: 10px; */
     border-radius: 10px;
     height: 180px;
     width: 252px;
 }
-
-/* .card-stack img {
-    border-radius: 10px;
-    height: 180px;
-    width: 252px;
-} */
 
 .game-btn {
     border-radius: 10px;
