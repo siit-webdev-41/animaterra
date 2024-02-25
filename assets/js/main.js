@@ -1,19 +1,18 @@
-console.log("main.js is loaded....");
+console.log('main.js is loaded....');
 
-import cards from "./cards.js";
-import CardDeck from "./card-deck.js";
-import PlayerComponent from "./player-component.js";
-import PlayerModel from "./player.js";
-import DrawnCardComponent from "./drawn-card-component.js";
+import cards from './cards.js';
+import CardDeck from './card-deck.js';
+import PlayerComponent from './player-component.js';
+import PlayerModel from './player.js';
+import DrawnCardComponent from './drawn-card-component.js';
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
 
 console.log(cardDeck);
 
-const playersComponent = document.querySelector("#players-ui-component");
-const playerCardsComponent = document.querySelector("#cards-container");
-
+const playersComponent = document.querySelector('#players-ui-component');
+const playerCardsComponent = document.querySelector('#cards-container');
 
 // player 1
 // const score1 = document.querySelector(".score1");
@@ -26,11 +25,8 @@ const playerCardsComponent = document.querySelector("#cards-container");
 // const playerUser2 = new Player(score2, player2, "card-right");
 // const winner = document.querySelector(".winner");
 
-
-
-
-const button = document.querySelector(".game-btn");
-button.addEventListener("click", newRound);
+const button = document.querySelector('.game-btn');
+button.addEventListener('click', newRound);
 
 function newRound() {
     for (let i = 0; i < players.length; i++) {
@@ -42,16 +38,14 @@ function newRound() {
         // update score & display
         players[i].updateScore(drawnCard.points);
         playerComponents[i].update();
-
     }
 }
-
 
 const players = [
     new PlayerModel('Greuceanu', 'purple', 10),
     new PlayerModel('Zmeul Zmeilor', 'red', 10),
     new PlayerModel('Muma Pădurii', 'green', 10),
-    new PlayerModel('Făt Frumos', 'blue', 10)
+    new PlayerModel('Făt Frumos', 'blue', 10),
 ];
 
 const playerComponents = [];
@@ -63,11 +57,20 @@ players.forEach((player, i) => {
     playersComponent.append(playerCardComponent.mainContainer);
 });
 
-
 // create the cards
 const playerDrawnCardsComponents = [];
-players.forEach(player => {
+players.forEach((player) => {
     const drawnCardComponent = new DrawnCardComponent(null);
     playerDrawnCardsComponents.push(drawnCardComponent);
     playerCardsComponent.append(drawnCardComponent.cardContainerElement);
 });
+
+const backOfCardDeck = document.querySelector('.card-stack');
+// console.log(backOfCard);
+
+for (let i = 0; i < 3; i++) {
+    const backOfCard = document.createElement('img');
+    backOfCard.src = 'assets/imgs/back-of-card.jpg';
+    backOfCard.classList.add(`back-of-card-${i}`);
+    backOfCardDeck.append(backOfCard);
+}

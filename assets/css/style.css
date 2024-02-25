@@ -154,11 +154,45 @@ h1 {
     font-size: 0.8rem;
 }
 
-.card-stack img {
+.card-stack {
+    position: relative;
+}
+
+.back-of-card-0 {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    left: 20px;
     border-radius: 10px;
     height: 180px;
     width: 252px;
 }
+
+.back-of-card-1 {
+    z-index: 20;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    height: 180px;
+    width: 252px;
+}
+
+.back-of-card-2 {
+    z-index: 30;
+    position: absolute;
+    /* margin-top: 10px;
+    margin-left: 10px; */
+    border-radius: 10px;
+    height: 180px;
+    width: 252px;
+}
+
+/* .card-stack img {
+    border-radius: 10px;
+    height: 180px;
+    width: 252px;
+} */
 
 .game-btn {
     border-radius: 10px;
@@ -271,4 +305,9 @@ h1 {
 #cards-container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.action {
+    display: flex;
+    justify-content: space-around;
 }
