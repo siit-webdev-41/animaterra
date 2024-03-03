@@ -16,8 +16,8 @@ const winnerPlayer = document.querySelector(".winner");
 const playersComponent = document.querySelector("#players-ui-component");
 const playerCardsComponent = document.querySelector("#cards-container");
 
-const button = document.querySelector(".game-btn");
-button.addEventListener("click", newRound);
+const newRoundButton = document.querySelector("#new-round-btn");
+newRoundButton.addEventListener("click", newRound);
 
 let roundNr = 0;
 const roundsMax = 20;
@@ -26,33 +26,40 @@ function newRound() {
     roundNr++;
 
     for (let i = 0; i < players.length; i++) {
-        const drawnCard = cardDeck.lastCard;
-        console.log(drawnCard);
+        if (players[i].isAlive) {
+            const drawnCard = cardDeck.lastCard;
+            console.log(drawnCard);
 
-        // update player score
-        players[i].updateScore(drawnCard.points);
+            // update player score
+            players[i].updateScore(drawnCard.points);
 
-        // display cards
-        const diplayCard = players[i].score > 0 ? drawnCard : null;
-        playerDrawnCardsComponents[i].updateComponent(diplayCard);
+            // display cards
+            // const diplayCard = players[i].score > 0 ? drawnCard : null;
+            playerDrawnCardsComponents[i].updateComponent(drawnCard);
 
-        // update player component
-        playerComponents[i].update();
-    }
+            // update player component
+            playerComponents[i].update();
 
-    if (roundNr >= roundsMax) {
-        button.removeEventListener("click", newRound);
-        endGame();
-    } else {
-        const remainingPlayers = players.filter((player) => player.score > 0);
-        if (remainingPlayers.length <= 1) {
-            button.removeEventListener("click", newRound);
-            endGame();
+            // check if player dies after drawing a card
+            if (!players[i].isAlive) {
+                playerDrawnCardsComponents[i].updateComponent(null);
+            }
         }
     }
+
+    // check end game
+    if(roundNr >= roundsMax || !players.some(player => player.isAlive)){
+        endGame();
+    }
+
+    // TODO - display the remaining rounds on the new round button
 }
 
 function endGame() {
+    // 
+    newRoundButton.removeEventListener("click", newRound);
+
+    // display the winner
     let highestScore = -1;
     let winner;
 
@@ -94,6 +101,9 @@ players.forEach((player) => {
 const backOfCardDeck = document.querySelector(".card-stack");
 // console.log(backOfCard);
 
+
+// TODO: implement the code using a UI component
+// drawa the cards stack
 for (let i = 0; i < 3; i++) {
     const backOfCard = document.createElement("img");
     backOfCard.src = "assets/imgs/back-of-card.jpg";
