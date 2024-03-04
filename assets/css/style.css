@@ -21,6 +21,7 @@
 
     --card-header-height: 30%;
     --card-width: 24rem;
+    --card-height: 22rem;
 }
 
 * {
@@ -49,6 +50,7 @@ h1 {
     box-shadow: 1px 1px 10px 2px var(--color-light-grey);
     background-color: #f9eac6;
     width: var(--card-width);
+    height: var(--card-height);
 }
 
 .card-display.grey {
