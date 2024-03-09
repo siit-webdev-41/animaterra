@@ -112,7 +112,7 @@ const backOfCardDeck = document.querySelector(".card-stack");
 // drawa the cards stack
 for (let i = 0; i < 3; i++) {
     const backOfCard = document.createElement("img");
-    backOfCard.src = "assets/imgs/back-of-card.jpg";
+    backOfCard.src = "assets/imgs/spate-2.png";
     backOfCard.classList.add(`back-of-card-${i}`);
     backOfCardDeck.append(backOfCard);
 }
