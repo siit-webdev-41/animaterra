@@ -5,6 +5,7 @@ import CardDeck from "./card-deck.js";
 import PlayerComponent from "./player-component.js";
 import PlayerModel from "./player.js";
 import DrawnCardComponent from "./drawn-card-component.js";
+import Game from "./game.js";
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
@@ -30,7 +31,6 @@ function newRound() {
     for (let i = 0; i < players.length; i++) {
         if (players[i].isAlive) {
             const drawnCard = cardDeck.lastCard;
-            console.log(drawnCard);
 
             // update player score
             players[i].updateScore(drawnCard.points);
@@ -116,3 +116,15 @@ for (let i = 0; i < 3; i++) {
     backOfCard.classList.add(`back-of-card-${i}`);
     backOfCardDeck.append(backOfCard);
 }
+
+
+/**
+ * NEW AND IMPROVED IMPLEMENTATION - UNDER CONSTRUCTION
+ */
+
+const game = new Game(cardDeck, 20);
+players.forEach(player => game.addPlayer(player));
+game.newRound();
+console.log(game.scoreBoard);
+
+console.log(game);
