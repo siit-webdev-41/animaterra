@@ -3,34 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="assets/css/style.css" />
-        <script type="module" src="assets/js/main.js"></script>
+        <title>Animatera Game</title>
+        <script src="assets/js/options.js" defer></script>
     </head>
     <body>
-        <h1>ANIMATERRA GAME!</h1>
-        <div id="game-ui-component">
-            <!-- PLAYERS UI COMPONENT -->
-            <div id="players-ui-component"></div>
+        <h1>ANIMATERA GAME!</h1>
 
-            <!-- CARDS UI COMPONENT -->
-            <div id="cards-container"></div>
+        <label for="players">Choose the number of players:</label>
+        <select id="players" name="players" onchange="getNumberOfPlayers()">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
 
-            <div class="action">
-                <div class="card-stack"></div>
+        <div class="players-details"></div>
 
-                <div class="score-container">
-                    <div class="game-result">
-                        <h3 class="winner"></h3>
-                    </div>
-                </div>
-                <div>
-                    <h1 class="numberRound"></h1>
-                    <button id="new-round-btn" class="game-btn">
-                        New round
-                    </button>
-                </div>
-            </div>
-        </div>
+        <a href="game.html"><button>PLAY</button></a>
     </body>
 </html>

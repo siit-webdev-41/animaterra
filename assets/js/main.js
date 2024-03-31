@@ -1,25 +1,25 @@
-console.log("main.js is loaded....");
+console.log('main.js is loaded....');
 
-import cards from "./cards.js";
-import CardDeck from "./card-deck.js";
-import PlayerComponent from "./player-component.js";
-import PlayerModel from "./player.js";
-import DrawnCardComponent from "./drawn-card-component.js";
-import Game from "./game.js";
+import cards from './cards.js';
+import CardDeck from './card-deck.js';
+import PlayerComponent from './player-component.js';
+import PlayerModel from './player.js';
+import DrawnCardComponent from './drawn-card-component.js';
+import Game from './game.js';
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
 
 console.log(cardDeck);
 
-const winnerPlayer = document.querySelector(".winner");
-const numberRound = document.querySelector(".numberRound");
+const winnerPlayer = document.querySelector('.winner');
+const numberRound = document.querySelector('.numberRound');
 
-const playersComponent = document.querySelector("#players-ui-component");
-const playerCardsComponent = document.querySelector("#cards-container");
+const playersComponent = document.querySelector('#players-ui-component');
+const playerCardsComponent = document.querySelector('#cards-container');
 
-const newRoundButton = document.querySelector("#new-round-btn");
-newRoundButton.addEventListener("click", newRound);
+const newRoundButton = document.querySelector('#new-round-btn');
+newRoundButton.addEventListener('click', newRound);
 
 let roundNr = 0;
 const roundsMax = 20;
@@ -64,7 +64,7 @@ function newRound() {
 
 function endGame() {
     //
-    newRoundButton.removeEventListener("click", newRound);
+    newRoundButton.removeEventListener('click', newRound);
 
     // display the winner
     let highestScore = -1;
@@ -82,10 +82,10 @@ function endGame() {
 
 const startScore = 1;
 const players = [
-    new PlayerModel("Greuceanu", "purple", startScore),
-    new PlayerModel("Zmeul Zmeilor", "red", startScore),
-    new PlayerModel("Muma Pădurii", "green", startScore),
-    new PlayerModel("Făt Frumos", "blue", startScore),
+    new PlayerModel('Greuceanu', 'purple', startScore),
+    new PlayerModel('Zmeul Zmeilor', 'red', startScore),
+    new PlayerModel('Muma Pădurii', 'green', startScore),
+    new PlayerModel('Făt Frumos', 'blue', startScore),
 ];
 
 const playerComponents = [];
@@ -105,25 +105,24 @@ players.forEach((player) => {
     playerCardsComponent.append(drawnCardComponent.cardContainerElement);
 });
 
-const backOfCardDeck = document.querySelector(".card-stack");
+const backOfCardDeck = document.querySelector('.card-stack');
 // console.log(backOfCard);
 
 // TODO: implement the code using a UI component
 // drawa the cards stack
 for (let i = 0; i < 3; i++) {
-    const backOfCard = document.createElement("img");
-    backOfCard.src = "assets/imgs/spate-2.png";
+    const backOfCard = document.createElement('img');
+    backOfCard.src = 'assets/imgs/spate-2.png';
     backOfCard.classList.add(`back-of-card-${i}`);
     backOfCardDeck.append(backOfCard);
 }
-
 
 /**
  * NEW AND IMPROVED IMPLEMENTATION - UNDER CONSTRUCTION
  */
 
 const game = new Game(cardDeck, 20);
-players.forEach(player => game.addPlayer(player));
+players.forEach((player) => game.addPlayer(player));
 game.newRound();
 console.log(game.scoreBoard);
 
