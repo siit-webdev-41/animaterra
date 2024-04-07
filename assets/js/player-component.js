@@ -50,7 +50,6 @@ export default class PlayerComponent {
     }
 
     update() {
-        console.log(`UPDATE COMPONENT`);
         this.#playerScore.textContent = this.player.score;
         this.updateComponentUI();
     }
