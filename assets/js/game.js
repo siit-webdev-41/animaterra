@@ -20,7 +20,7 @@ export default class Game {
             return;
         }
 
-        if(this.endGame.gameOver){
+        if(this.gameStatus.gameOver){
             console.info('Game over!');
             return;
         }
@@ -36,7 +36,7 @@ export default class Game {
     }
 
 
-    get endGame(){
+    get gameStatus(){
         if(this.players.filter((player) => player.isAlive).length < 1){
             return gameStatusFactory(true, `All the players died!`, null);
         }
@@ -55,7 +55,13 @@ export default class Game {
 
     get scoreBoard(){
         this.#scoreBoard = structuredClone(this.players);
-        this.#scoreBoard.sort((playerA, playerB) => playerA.score - playerB.score);
+
+        // structuredClone does not copy private properties ;)
+        this.players.forEach((player, i) => {
+            this.#scoreBoard[i].score = player.score;
+        })
+
+        this.#scoreBoard.sort((playerA, playerB) => playerB.score - playerA.score);
         return this.#scoreBoard;
     }
 }
