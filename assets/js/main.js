@@ -6,11 +6,10 @@ import PlayerComponent from "./player-component.js";
 import PlayerModel from "./player.js";
 import DrawnCardComponent from "./drawn-card-component.js";
 import Game from "./game.js";
+import GameComponent from './game-component.js'
 
 const cardDeckSize = 20;
 const cardDeck = new CardDeck(cards, cardDeckSize);
-
-console.log(cardDeck);
 
 const winnerPlayer = document.querySelector(".winner");
 const numberRound = document.querySelector(".numberRound");
@@ -21,9 +20,15 @@ const playerCardsComponent = document.querySelector("#cards-container");
 const newRoundButton = document.querySelector("#new-round-btn");
 newRoundButton.addEventListener("click", newRound);
 
-let roundNr = 0;
+/**
+ * SETTINGS
+ */
+const startScore = 1;
 const roundsMax = 20;
+
+
 numberRound.innerHTML = `Round ${roundsMax}`;
+let roundNr = 0;
 
 function newRound() {
     roundNr++;
@@ -80,7 +85,7 @@ function endGame() {
     winnerPlayer.innerHTML = `The winner is ${winner.name} with ${highestScore} points.`;
 }
 
-const startScore = 1;
+
 const players = [
     new PlayerModel("Greuceanu", "purple", startScore),
     new PlayerModel("Zmeul Zmeilor", "red", startScore),
@@ -88,8 +93,8 @@ const players = [
     new PlayerModel("Făt Frumos", "blue", startScore),
 ];
 
+// creates the components displaying the players, and injects them in the DOM
 const playerComponents = [];
-
 players.forEach((player, i) => {
     const playerCardComponent = new PlayerComponent(player, i + 1);
     playerComponents.push(playerCardComponent);
@@ -97,9 +102,9 @@ players.forEach((player, i) => {
     playersComponent.append(playerCardComponent.mainContainer);
 });
 
-// create the cards
+// create the components displaying the game cards, and injects them in the DOM
 const playerDrawnCardsComponents = [];
-players.forEach((player) => {
+players.forEach(() => {
     const drawnCardComponent = new DrawnCardComponent(null);
     playerDrawnCardsComponents.push(drawnCardComponent);
     playerCardsComponent.append(drawnCardComponent.cardContainerElement);
@@ -109,7 +114,7 @@ const backOfCardDeck = document.querySelector(".card-stack");
 // console.log(backOfCard);
 
 // TODO: implement the code using a UI component
-// drawa the cards stack
+// draw the cards stack
 for (let i = 0; i < 3; i++) {
     const backOfCard = document.createElement("img");
     backOfCard.src = "assets/imgs/spate-2.png";
@@ -122,9 +127,12 @@ for (let i = 0; i < 3; i++) {
  * NEW AND IMPROVED IMPLEMENTATION - UNDER CONSTRUCTION
  */
 
-const game = new Game(cardDeck, 20);
+const game = new Game(cardDeck, roundsMax);
 players.forEach(player => game.addPlayer(player));
-game.newRound();
-console.log(game.scoreBoard);
 
-console.log(game);
+
+const gameComponent = new GameComponent(game);
+// newRoundButton.addEventListener("click", () => {
+//     game.newRound();
+//     console.log(game.scoreBoard);
+// });

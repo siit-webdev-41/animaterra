@@ -1,7 +1,7 @@
 export default class Game {
     #scoreBoard = null
 
-    constructor(cardDeck, maxRounds){
+    constructor(cardDeck, maxRounds = 25){
         this.cardDeck = cardDeck;
         this.maxRounds = maxRounds;
         this.players = [];
