@@ -47,7 +47,7 @@ function newRound() {
             // update player component
             playerComponents[i].update();
 
-            console.log(players[i]);
+            // console.log(players[i]);
             // check if player dies after drawing a card
             if (!players[i].isAlive) {
                 playerDrawnCardsComponents[i].updateComponent(null);
@@ -127,12 +127,20 @@ for (let i = 0; i < 3; i++) {
  * NEW AND IMPROVED IMPLEMENTATION - UNDER CONSTRUCTION
  */
 
+const players1 = [
+    new PlayerModel("Greuceanu", "purple", startScore),
+    new PlayerModel("Zmeul Zmeilor", "red", startScore),
+    new PlayerModel("Muma Pădurii", "green", startScore),
+    new PlayerModel("Făt Frumos", "blue", startScore),
+];
+
 const game = new Game(cardDeck, roundsMax);
-players.forEach(player => game.addPlayer(player));
+players1.forEach(player => game.addPlayer(player));
 
 
-const gameComponent = new GameComponent(game);
-// newRoundButton.addEventListener("click", () => {
-//     game.newRound();
-//     console.log(game.scoreBoard);
-// });
+const gameComponent = new GameComponent(game, playerCardsComponent);
+
+newRoundButton.addEventListener("click", () => {
+    game.newRound();
+    console.log(game.scoreBoard);
+});

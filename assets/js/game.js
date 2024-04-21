@@ -5,12 +5,14 @@ export default class Game {
         this.cardDeck = cardDeck;
         this.maxRounds = maxRounds;
         this.players = [];
+        this.drawnCards = [];
         this.currentRound = 0;
     }
 
 
     addPlayer(player){
         this.players.push(player);
+        this.drawnCards.push(null);
     }
 
 
@@ -28,11 +30,14 @@ export default class Game {
         this.currentRound++;
         for (let i = 0; i < this.players.length; i++) {
             if (this.players[i].isAlive){
-                const drawnCard = this.cardDeck.lastCard;
-                this.players[i].updateScore(drawnCard.points);
-                console.log(drawnCard);
+                this.drawnCards[i] = this.cardDeck.lastCard;
+                this.players[i].updateScore(this.drawnCards[i].points);
             }
+            
         }
+        console.log('===');
+        console.log('DRAWN CARDS:');
+        console.log(this.drawnCards);
     }
 
 
@@ -56,7 +61,7 @@ export default class Game {
     get scoreBoard(){
         this.#scoreBoard = structuredClone(this.players);
 
-        // structuredClone does not copy private properties ;)
+        // structuredClone do not copy private properties ;)
         this.players.forEach((player, i) => {
             this.#scoreBoard[i].score = player.score;
         })

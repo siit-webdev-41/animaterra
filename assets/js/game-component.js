@@ -1,8 +1,14 @@
+import DrawnCardComponent from "./drawn-card-component.js";
+
 export default class GameComponent {
 
-    constructor(game) {
+    constructor(game, playerCardsContainerDomElement) {
         this.game = game;
-        console.log(game);
+
+        this.playerCardsContainerDomElement = playerCardsContainerDomElement;
+
+        // components displaying the drawn cards for each player
+        this.playerDrawnCardsComponents = [];
 
         // create the UI elements for the players
         this.createPlayersComponents();
@@ -13,7 +19,11 @@ export default class GameComponent {
 
 
     createPlayersComponents(){
-        // @TODO
+        this.game.players.forEach(() => {
+            const drawnCardComponent = new DrawnCardComponent(null);
+            this.playerDrawnCardsComponents.push(drawnCardComponent);
+            this.playerCardsContainerDomElement.append(drawnCardComponent.cardContainerElement);
+        });
     }
 
 
@@ -23,7 +33,7 @@ export default class GameComponent {
 
 
     update(){
-
+        
     }
 
 }
