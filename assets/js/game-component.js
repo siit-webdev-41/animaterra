@@ -1,11 +1,13 @@
 import DrawnCardComponent from "./drawn-card-component.js";
+import PlayerComponent from "./player-component.js";
 
 export default class GameComponent {
 
-    constructor(game, playerCardsContainerDomElement) {
+    constructor(game, playersProfileContainerDomElement, playerCardsContainerDomElement) {
         this.game = game;
 
         this.playerCardsContainerDomElement = playerCardsContainerDomElement;
+        this.playersProfileContainerDomElement = playersProfileContainerDomElement;
 
         // components displaying the drawn cards for each player
         this.playerDrawnCardsComponents = [];
@@ -18,7 +20,17 @@ export default class GameComponent {
     }
 
 
-    createPlayersComponents(){
+    createPlayersComponents() {
+        const playerComponents = [];
+        this.game.players.forEach((player, i) => {
+            const playerCardComponent = new PlayerComponent(player, i + 1);
+            playerComponents.push(playerCardComponent);
+            this.playersProfileContainerDomElement.append(playerCardComponent.mainContainer);
+        });
+    }
+
+
+    createGameCardsComponents() {
         this.game.players.forEach(() => {
             const drawnCardComponent = new DrawnCardComponent(null);
             this.playerDrawnCardsComponents.push(drawnCardComponent);
@@ -27,13 +39,17 @@ export default class GameComponent {
     }
 
 
-    createGameCardsComponents(){
-        // @TODO
-    }
+    update() {
+        console.log();
+        console.log('*********');
+        console.log(this.game);
 
+        console.log('===');
+        console.log('DRAWN CARDS:');
+        console.log(this.game.drawnCards);
 
-    update(){
-        
+        console.log('===SCOREBOARD===');
+        console.log(this.game.scoreBoard);
     }
 
 }

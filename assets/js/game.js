@@ -35,9 +35,6 @@ export default class Game {
             }
             
         }
-        console.log('===');
-        console.log('DRAWN CARDS:');
-        console.log(this.drawnCards);
     }
 
 
